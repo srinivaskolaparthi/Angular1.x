@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+AngularJs Sort Table Columns Example
+</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript">
+var app = angular.module("tablesApp", []);
+app.controller("tablesCtrl", function ($scope) {
+$scope.users = [{
+name: "Madhav Sai",
+age: 10,
+location:'Nagpur'
+}, {
+name: "Srini",
+age: 30,
+location:'Chennai'
+}, {
+name: "Rohini Alavala",
+age: 29,
+location:'Chennai'
+}, {
+name: "Praveen Kumar mIthani",
+age: 24,
+location:'Bangalore'
+}];
+});
+</script>
+
+<style type="text/css">
+table, tr , td {
+border: 1px solid grey;
+border-collapse: collapse;
+padding: 5px;
+}
+table tr:nth-child(odd) {
+background-color: #d6f1f8;
+}
+table tr:nth-child(even) {
+background-color: #ffffff;
+}
+</style>
+</head>
+<body ng-app="tablesApp">
+<div ng-controller="tablesCtrl">
+<h2>AngularJS Sort Table Columns</h2>
+<table>
+<tr>
+<td>Name</td>
+<td>Age</td>
+<td>Location</td>
+</tr>
+<tr ng-repeat="user in users | orderBy : 'age'">
+<td>{{user.name}}</td>
+<td>{{user.age}}</td>
+<td>{{user.location}}</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
