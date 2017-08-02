@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+     <input type="text" ng-model="pop"/>
+{{pop}}	 
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+
+        myApp.controller("myController", function ($scope, $interval,$log) {
+            $scope.counter = 0;
+
+            var increaseCounter = function () {
+                $scope.counter = $scope.counter + 1;
+				$log.info($scope.counter);
+				
+				//($scope.counter);
+            }
+
+            $interval(increaseCounter, 1000);        
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+getData('localhost', writeData);
+
+document.getElementById('output').innerHTML += "show this before data ...";
+
+function getData(dataURI, callback) {
+    
+    var timer = setTimeout(function () {
+        var dataArray = [123, 456, 789, 012, 345, 678];
+        callback(dataArray);
+    }, 3000);
+}
+
+function writeData(myData) {
+    document.getElementById('output').innerHTML += myData;
+}
+</script>
+</head>
+<body>
+ <p id="output"></p>
+</body>
+</html>
